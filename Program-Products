@@ -1,0 +1,29 @@
+def purchase_products(products):
+    cart = []
+
+    while True:
+        print("Available products:")
+        for index, product in enumerate(products):
+            print(f"{index + 1}. {product}")
+
+        choice = input("Enter the number of the product you want to add to the cart (or 'q' to quit): ")
+
+        if choice.lower() == 'q':
+            break
+
+        if choice.isdigit() and int(choice) <= len(products):
+            selected_product = products[int(choice) - 1]
+            cart.append(selected_product)
+            print(f"{selected_product} added to the cart.")
+        else:
+            print("Invalid selection. Please try again.")
+
+    return cart
+
+# Example usage
+products = ["Product 1", "Product 2", "Product 3", "Product 4"]
+cart = purchase_products(products)
+
+print("Items in the cart:")
+for item in cart:
+    print(item)
